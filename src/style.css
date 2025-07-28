@@ -17,6 +17,17 @@ h2 {
     font-size: 28px;
 }
 
+select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    border-color: #385170;
+    color: #385170;
+    font-weight: bold;
+}
+
 .container {
     max-width: 600px;
     margin: 0 auto;
@@ -52,16 +63,6 @@ h2 {
     vertical-align: middle;
 }
 
-select {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 18px;
-    border-color: #385170;
-    color: #385170;
-    font-weight: bold;
-}
 
 footer {
     text-align: center;
