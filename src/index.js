@@ -1,15 +1,20 @@
-setInterval(function () {
-    let losAngelesElement = document.querySelector("#losAngeles");
-    let losAngelesDate = losAngelesElement.querySelector(".date")
-    let losAngelesTime = losAngelesElement.querySelector(".time")
-    losAngelesDate.innerHTML = moment().format("MMMM DD YYYY");
-    losAngelesTime.innerHTML = moment().tz("America/Los_Angeles").format("hh:mm:ss [<small>]A[</small>]");
+setInterval(function() {
 }, 1000);
 
-setInterval(function() {
-    let philadelphiaElement = document.querySelector("#philadelphia");
-    let philaDate = philadelphiaElement.querySelector(".date");
-    let philaTime = philadelphiaElement.querySelector(".time");
-    philaDate.innerHTML = moment().format("MMMM DD YYYY");
-    philaTime.innerHTML = moment().tz("America/New_York").format("hh:mm:ss [<small>]A[</small>]");
-}, 1000);
+function updateCity (event) {
+    let cityTimeZone = event.target.value;
+    let cityTime = moment.tz(cityTimeZone);
+    let citiesEleemnt = document.querySelector("#cities");
+    citiesEleemnt.innerHTML = `
+    <div class="city">
+        <div>
+            <h2>${cityTimeZone.replace("_", " ").split("/")[1]}</h2>
+            <div class="date">${cityTime.format("MMMM DD YYYY")}</div>
+        </div>
+        <div class="time">${cityTime.format("hh:mm:ss [<small>]A[</small>]")}</div>
+    </div>
+    `;
+}
+
+let citiesSelectElement = document.querySelector("#city");
+citiesSelectElement.addEventListener("change", updateCity);
